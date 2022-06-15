@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { StrictMode, useState } from 'react';
+import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
+const root = createRoot(rootElement || new Element());
 
 function Button(props: any) {
   const handelClick = () => {
