@@ -18,7 +18,7 @@ function Display(props: any) {
 
 function App() {
   const [counter, setCounter] = useState(0);
-  const incrementCounter = (incrementValue) => {
+  const incrementCounter = (incrementValue: number) => {
     setCounter(counter + incrementValue);
   };
   return (
