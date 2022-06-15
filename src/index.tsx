@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -13,7 +12,7 @@ function Button(props: any) {
 }
 
 function Display(props: any) {
-  return <div>{props.messsage}</div>;
+  return <div>{props.message}</div>;
 }
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
       <Button onClickFunction={incrementCounter} increment={1} />
       <Button onClickFunction={incrementCounter} increment={2} />
       <Button onClickFunction={incrementCounter} increment={5} />
-      <Display messsage={counter} />
+      <Display message={counter} />
     </>
   );
 }
