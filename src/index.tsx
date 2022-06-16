@@ -1,33 +1,21 @@
-import { useState } from 'react';
+import * as React from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-//const {useState} = require("react");
+
+import App from './App';
+
 const rootElement = document.getElementById('root');
-const root = createRoot(rootElement || new Element());
+const root = createRoot(rootElement);
 
-function Button(props: any) {
-  const handelClick = () => {
-    props.onClickFunction(props.increment);
-  };
-  return <button onClick={handelClick}>+{props.increment}</button>;
-}
-
-function Display(props: any) {
-  return <div>{props.message}</div>;
-}
-
-function App() {
-  const [counter, setCounter] = useState(0);
-  const incrementCounter = (incrementValue: number) => {
-    setCounter(counter + incrementValue);
-  };
-  return (
-    <>
-      <Button onClickFunction={incrementCounter} increment={1} />
-      <Button onClickFunction={incrementCounter} increment={2} />
-      <Button onClickFunction={incrementCounter} increment={5} />
-      <Display message={counter} />
-    </>
+const render = () => {
+  root.render(
+    React.createElement(
+      StrictMode,
+      null,
+      React.createElement(App, null),
+      React.createElement('pre', null, new Date().toLocaleTimeString())
+    )
   );
-}
+};
 
-root.render(<App />);
+setInterval(render, 1000);
