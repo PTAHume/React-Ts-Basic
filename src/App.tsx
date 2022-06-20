@@ -16,11 +16,27 @@ function Display(props: any) {
   return <div>{props.message}</div>;
 }
 
+const fetchDataOld = () => {
+  fetch('https://api.github.com/').then((response) => {
+    response.json().then((data) => {
+      console.log(data);
+    });
+  });
+};
+
+const fetchDataNew = async () => {
+  const response = await fetch('https://api.github.com/');
+  const data = await response.json();
+  console.log(data);
+};
+
 function App() {
   const [counter, setCounter] = useState(0);
   const incrementCounter = (incrementValue: number) => {
     setCounter(counter + incrementValue);
   };
+  //fetchDataOld();
+  //fetchDataNew();
   return (
     <>
       <Button onClickFunction={incrementCounter} increment={1} />
